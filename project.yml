@@ -1,0 +1,92 @@
+name: Components
+options:
+  postGenCommand: pod install
+  deploymentTarget:
+    iOS: 13.0
+  
+attributes:
+  ORGANIZATIONNAME: goncalvesej
+    
+configs:
+  debug: debug
+  test: debug
+  release: release
+
+settings:
+  configs:
+    test:
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG TEST
+
+targets:
+  Components:
+    platform: iOS
+    type: framework
+    deploymentTarget: "13.0"
+    sources:
+      - Components
+    # dependencies:
+    #   - package: Pkg
+    settings:
+      base:
+        INFOPLIST_FILE: Components/Info.plist
+        ENABLE_BITCODE: NO
+        PRODUCT_BUNDLE_IDENTIFIER: com.goncalvesej.$(PRODUCT_NAME).App
+        SDKROOT: iphoneos
+        SWIFT_VERSION: 5.7
+        IPHONEOS_DEPLOYMENT_TARGET: 13.0
+        TARGETED_DEVICE_FAMILY: "1"
+        PRODUCT_NAME: Components
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: iPhone Developer
+        CODE_SIGN_IDENTITY [sdk=iphoneos*]: iPhone Developer
+
+  ComponentsTests:
+    platform: iOS
+    type: bundle.unit-test
+    deploymentTarget: "13.0"
+    sources:
+      - ComponentsTests
+    dependencies:
+      - target: Components
+    settings:
+      base:
+        PRODUCT_NAME: ComponentsTests
+    info:
+      path: ComponentsTests/Info.plist
+
+  ComponentsSample:
+    platform: iOS
+    type: application
+    deploymentTarget: "13.0"
+    sources:
+      - ComponentsSample
+    # dependencies:
+    #   - package: Pkg
+    settings:
+      base:
+        INFOPLIST_FILE: ComponentsSample/Info.plist
+        ENABLE_BITCODE: NO
+        PRODUCT_BUNDLE_IDENTIFIER: com.goncalvesej.$(PRODUCT_NAME).App
+        SDKROOT: iphoneos
+        SWIFT_VERSION: 5.7
+        IPHONEOS_DEPLOYMENT_TARGET: 13.0
+        TARGETED_DEVICE_FAMILY: "1"
+        PRODUCT_NAME: Components
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: iPhone Developer
+        CODE_SIGN_IDENTITY [sdk=iphoneos*]: iPhone Developer
+  
+schemes:
+  Components:
+    build:
+      targets:
+        Components: all
+        ComponentsTests: [test]
+    test:
+      config: test
+      gatherCoverageData: true
+      coverageTargets:
+        - Components
+      targets:
+        - name: ComponentsTests
+          parallelizable: true
