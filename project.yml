@@ -24,8 +24,7 @@ targets:
     deploymentTarget: "13.0"
     sources:
       - Components
-    # dependencies:
-    #   - package: Pkg
+
     settings:
       base:
         INFOPLIST_FILE: Components/Info.plist
@@ -36,9 +35,6 @@ targets:
         IPHONEOS_DEPLOYMENT_TARGET: 13.0
         TARGETED_DEVICE_FAMILY: "1"
         PRODUCT_NAME: Components
-        CODE_SIGN_STYLE: Manual
-        CODE_SIGN_IDENTITY: iPhone Developer
-        CODE_SIGN_IDENTITY [sdk=iphoneos*]: iPhone Developer
 
   ComponentsTests:
     platform: iOS
@@ -60,8 +56,7 @@ targets:
     deploymentTarget: "13.0"
     sources:
       - ComponentsSample
-    # dependencies:
-    #   - package: Pkg
+
     settings:
       base:
         INFOPLIST_FILE: ComponentsSample/Info.plist
@@ -72,9 +67,6 @@ targets:
         IPHONEOS_DEPLOYMENT_TARGET: 13.0
         TARGETED_DEVICE_FAMILY: "1"
         PRODUCT_NAME: Components
-        CODE_SIGN_STYLE: Manual
-        CODE_SIGN_IDENTITY: iPhone Developer
-        CODE_SIGN_IDENTITY [sdk=iphoneos*]: iPhone Developer
   
 schemes:
   Components:
