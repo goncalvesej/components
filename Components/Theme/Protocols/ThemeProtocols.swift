@@ -11,31 +11,26 @@ import UIKit
 
 public protocol SpacingProtocol {
 
-    var size_xxs: Int { get }
-    var size_xs: Int { get }
-    var size_sm: Int { get }
-    var size_md: Int { get }
-    var size_lg: Int { get }
-    var size_xl: Int { get }
-    var size_xxl: Int { get }
+    var size_xxs: CGFloat { get }
+    var size_xs: CGFloat { get }
+    var size_sm: CGFloat { get }
+    var size_md: CGFloat { get }
+    var size_lg: CGFloat { get }
+    var size_xl: CGFloat { get }
+    var size_xxl: CGFloat { get }
 
 }
 
 public protocol ColorsProtocol {
 
     var background_base: UIColor { get }
-    var background_light: UIColor { get }
-    var background_dark: UIColor { get }
-
     var foreground_base: UIColor { get }
-    var foreground_light: UIColor { get }
-    var foreground_dark: UIColor { get }
-
-    var text_base: UIColor { get }
-    var text_success: UIColor { get }
-    var text_error: UIColor { get }
-    var text_warning: UIColor { get }
-    var text_info: UIColor { get }
+    var feedback_success: UIColor { get }
+    var feedback_success_light: UIColor { get }
+    var feedback_success_dark: UIColor { get }
+    var feedback_error: UIColor { get }
+    var feedback_warning: UIColor { get }
+    var feedback_info: UIColor { get }
 
 }
 
